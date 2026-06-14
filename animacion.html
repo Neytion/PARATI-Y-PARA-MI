@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Animación</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <style>
+    /* Basado en tu CSS enviado, con correcciones mínimas */
+    .carousel_love {
+        position: relative;
+        font-family: 'love', sans-serif;
+        width: 100px; /* 'ten' corregido a 100px */
+        text-align: center;
+        font-size: 30px;
+        line-height: 45px;
+        height: 45px;
+        margin: 60px auto;
+        border-radius: 8px;
+        background: linear-gradient(180deg,#ffd6de,#ffc0cc);
+        color: #a91f4a;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transform-origin: center;
+        animation: loveBeat 1.2s infinite;
+    }
+
+    @keyframes loveBeat {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.12); }
+        100% { transform: scale(1); }
+    }
+    </style>
+</head>
+<body>
+    <h2 style="text-align:center;">Animación</h2>
+    <div class="carousel_love">Te amo</div>
+    <p style="text-align:center; margin-top:12px;"><a href="{{ url_for('home') }}">Volver</a></p>
+</body>
+</html>

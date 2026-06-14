@@ -1,0 +1,98 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feliz Aniversario</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/estilo.css') }}">
+</head>
+<body>
+    <div class="heart-background" aria-hidden="true">
+        <span class="heart"></span>
+        <span class="heart"></span>
+        <span class="heart"></span>
+        <span class="heart"></span>
+        <span class="heart"></span>
+        <span class="heart"></span>
+    </div>
+
+    <div class="page-shell">
+        <section class="hero">
+            <div class="corazon">🩵</div>
+            <h1>¡Feliz Aniversario, {{ pareja2 }}!</h1>
+            <p>Un espacio especial dedicado a nuestra historia el {{ fecha_aniversario }}.</p>
+            <a href="{{ url_for('carta') }}" class="btn btn-primary btn-scroll">Leer la carta</a>
+        </section>
+
+        <section id="carrusel" class="interactive-card">
+            <div class="card-title">TE AMO EN TODOS LOS IDIOMAS</div>
+            <div class="word-rotator">
+                <span>I love you</span>
+                <span>Te amo</span>
+                <span>Je t'aime</span>
+                <span>Ti amo</span>
+                <span>사랑해</span>
+            </div>
+            <div class="card-subtitle">PARA MI CULITO.</div>
+        </section>
+
+        <section class="video-section">
+            <h2>Recuerdo en video</h2>
+            <div class="video-player">
+                <video controls>
+                    <source src="{{ url_for('static', filename='Videos/nuestrovideo.mp4') }}" type="video/mp4">
+                    Tu navegador no soporta el reproductor de video.
+                </video>
+            </div>
+        </section>
+
+        <section class="slider-section">
+            <h2>Galería Bloque 1</h2>
+            <div class="slider-container left">
+                <div class="slider-track">
+                    {% for foto in fotos_bloque1 %}
+                    <div class="slide">
+                        <img src="{{ url_for('static', filename=fotos_folder + '/' + foto) }}" alt="Foto de aniversario">
+                    </div>
+                    {% endfor %}
+                    {% for foto in fotos_bloque1 %}
+                    <div class="slide">
+                        <img src="{{ url_for('static', filename=fotos_folder + '/' + foto) }}" alt="Foto de aniversario">
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+
+        <section class="slider-section">
+            <h2>Galería Bloque 2</h2>
+            <div class="slider-container right">
+                <div class="slider-track">
+                    {% for foto in fotos_bloque2 %}
+                    <div class="slide">
+                        <img src="{{ url_for('static', filename=fotos_folder + '/' + foto) }}" alt="Foto de aniversario">
+                    </div>
+                    {% endfor %}
+                    {% for foto in fotos_bloque2 %}
+                    <div class="slide">
+                        <img src="{{ url_for('static', filename=fotos_folder + '/' + foto) }}" alt="Foto de aniversario">
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var button = document.querySelector('.btn-scroll');
+            var target = document.getElementById('carrusel');
+            if (button && target) {
+                button.addEventListener('click', function() {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                });
+            }
+        });
+    </script>
+</body>
+</html>

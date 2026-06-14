@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carta de Amor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/estilo.css') }}">
+</head>
+<body>
+    <div class="heart-background" aria-hidden="true">
+        <span class="heart"></span>
+        <span class="heart"></span>
+        <span class="heart"></span>
+        <span class="heart"></span>
+        <span class="heart"></span>
+        <span class="heart"></span>
+    </div>
+
+    <div class="page-shell carta-page">
+        <section class="hero carta-hero">
+            <div class="corazon">💌</div>
+            <h1>Mi carta para ti</h1>
+            <p>Un mensaje guardado en el corazón y en este pequeño rincón.</p>
+        </section>
+
+        <section class="letter-card">
+            <div class="letter-title">Carta romántica</div>
+            <div class="letter-content">
+                <pre>{{ carta_texto }}</pre>
+            </div>
+            <form action="{{ url_for('carta') }}" method="post" class="letter-form">
+                <label for="carta_texto">Escribe o edita tu carta:</label>
+                <textarea id="carta_texto" name="carta_texto" rows="10">{{ carta_texto }}</textarea>
+                <button type="submit" class="btn btn-primary">Guardar carta</button>
+            </form>
+            <a href="{{ url_for('home') }}" class="btn btn-secondary">Volver al aniversario</a>
+        </section>
+    </div>
+</body>
+</html>
